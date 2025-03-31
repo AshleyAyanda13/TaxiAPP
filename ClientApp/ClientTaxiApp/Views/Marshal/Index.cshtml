@@ -1,0 +1,53 @@
+﻿@model IEnumerable<TaxiMarshal>
+
+<h3>Marshal List </h3>
+<a asp-action="Create" class="btn btn-primary">Create</a>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">MarshalName</th>
+
+            <th scope="col">MarshalSurname</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        
+            @foreach(var marshal in Model)
+            {
+             <tr>
+
+                <td>@marshal.MarshalSurname</td>
+                <td>@marshal.MarshalName</td>
+                <td>
+                    <a asp-action="MarshalDetails" asp-route-id="@marshal.Id" class="btn btn-info">Details</a>
+                </td>
+                <td>
+                 @*    <h1>Delete Confirmation</h1>
+                    <div class="alert alert-danger">
+                        <h5> Are you sure want to delete Marshal</h5>
+                        <form method="post">
+                            <button type="submit" class="btn btn-danger">Yes</button>
+                            <a class="btn btn-primary" asp-action="Index">No</a>
+                        </form>
+                    </div> *@
+                    <span class="btn btn-danger">
+                    
+                    @Html.ActionLink("Delete", "MarshalDelete", new { id = marshal.Id }, new { onclick = " return confirm('Are you sure you wish to delete this marshal?');" })
+                    </span>
+
+                    @* <a asp-action="MarshalDelete" asp-route-id="@marshal.Id">Delete</a>
+                    <form method="post">
+                        <button type="submit" class="btn btn-danger" asp-route-id="@marshal.Id">Yes</button>
+                        <a class="btn btn-primary" asp-action="MarshalDelete">No</a>
+                    </form> *@
+                </td>
+
+                <td>
+                    <a class="btn btn-primary" href="@Url.Action("MarshalPut", "Marshal", new { id = marshal.Id })">Edit</a>
+                </td>
+            </tr>
+            }
+    </tbody>
+
+</table>

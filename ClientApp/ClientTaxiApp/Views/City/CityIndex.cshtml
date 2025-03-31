@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Cities>
+
+<h3>Cities List </h3>
+<a asp-action="Create" class="btn btn-primary">Create</a>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @foreach (var cities in Model)
+        {
+            <tr>
+
+                <td>@cities.Name</td>
+                <td>
+                    <a asp-action="CityDetails"  asp-route-id="@cities.Id" class="btn btn-info">Details</a>
+                </td>
+                <td>
+                    <span class="btn btn-danger">
+                    @Html.ActionLink("Delete", "CityDelete", new { id = cities.Id }, new { onclick = " return confirm('Are you sure you wish to delete this City?');" })
+                    </span>
+                </td>
+
+                <td>
+                    <a class="btn btn-primary" href="@Url.Action("CityPut", "City", new { id = cities.Id })">Edit</a>
+                </td>
+            </tr>
+        }
+
+    </tbody>
+
+</table>

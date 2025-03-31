@@ -1,0 +1,28 @@
+﻿@model ClientTaxiApp.Models.TimeslotViewModel
+
+@{
+    ViewData["Title"] = "TimeslotPut";
+}
+
+<h1>TimeslotPut</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="TimeslotPut">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Slot" class="control-label"></label>
+                <input asp-for="Slot" type="time" class="form-control" />
+                <span asp-validation-for="Slot" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary m-1" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="TimeslotIndex" class="btn btn-success m-3">Back to List</a>
+</div>
+

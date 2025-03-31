@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewData["Tittle"] = "BookingDetails";
+}
+
+@model Bookings
+
+    
+<div class="accordion accordion-flush" id="accordionFlushExample">
+ 
+{<h4>BookingDetails</h4>
+    @if (User.Identity.IsAuthenticated)
+    {
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-headingOne">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                Booking Details
+            </button>
+        </h2>
+        <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+            <div class="accordion-body">
+                <!--Booking Details-->
+                <dl class="row">
+                    <dt class=" col-4">Booking Date</dt>
+                    <dd class="col-6">@Model.BookingDate</dd>
+                </dl>
+                <dl class="row">
+                    <dt class=" col-4">Passenger Name</dt>
+                    <dd class="col-6">@Model.Passenger.PassengerName</dd>
+                </dl>
+                <dl class="row">
+                    <dt class=" col-4">City</dt>
+                    <dd class="col-6">@Model.City</dd>
+                    
+                </dl>
+                <dl class="row">
+                    <dt class=" col-4">Time slot</dt>
+                    <dd class="col-6">@Model.Timeslot</dd>
+                </dl>
+                
+            </div>
+        </div>
+        </div>}
+        </div
+        
+        <a asp-action="BookingsIndex" class="btn btn-success">Back To List</a>
+        
+                    

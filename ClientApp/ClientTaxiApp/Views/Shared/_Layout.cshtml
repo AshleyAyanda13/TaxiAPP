@@ -1,0 +1,293 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - ClientTaxiApp</title>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/ClientTaxiApp.styles.css" asp-append-version="true" />
+
+
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <script src="https://kit.fontawesome.com/824f59c8d7.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+
+@* 
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+     
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+
+                @if(User.Identity.IsAuthenticated){
+
+                    <nav class="navbar navbar-expand-md bg-info navbar-light" >
+                    <div class="container">
+                            <a class="navbar-brand" asp-controller="Bookings" asp-action="Homes">Home</a>
+                            <a class="navbar-brand" asp-controller="Bookings" asp-action="About">About</a>
+                  
+
+                        <div class="collapse navbar-collapse"
+                            id="MyNavbar">
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item"><a class="nav-link" asp-controller="Bookings" asp-action="About"></a></li>
+
+                       @if(User.IsInRole("Admin"))
+                       {
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Marshal" asp-action="Index">Marshal</a>
+                        </li>
+                       }
+
+
+                       
+                        @if (User.IsInRole("Admin"))
+                        {
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Timeslot" asp-action="TimeslotIndex">TimeSlot</a>
+                        </li>
+                        }
+
+
+                       @if(User.IsInRole("Admin"))
+                       {
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Province" asp-action="ProvinceIndex">Province</a>
+                        </li>
+                       }
+                       @if(User.IsInRole("Admin"))
+                       {
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="City" asp-action="CityIndex">City</a>
+                        </li>
+                       }
+
+
+                       @if(User.IsInRole("Admin"))
+                       {
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Driver" asp-action="DriverIndex">Driver</a>
+                        </li>
+                       }
+
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Taxi" asp-action="TaxiIndex">Taxi</a>
+                        </li>
+                        
+                        }
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="DriverDel" asp-action="DriverDelIndex">Deleted Drivers</a>
+                        </li>
+                        
+                        }
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Passenger" asp-action="PassengerIndex">Passenger</a>
+                            </li>
+                        }
+                        @if (User.IsInRole("AppUser"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Bookings" asp-action="BookingsIndex">Bookings</a>
+                            </li>
+                        }
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Payments" asp-action="PaymentsIndex">Payments</a>
+
+                        </li>
+                        }
+                            
+                                <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="ViewAccountView"><i class="fa-regular fa-user"></i></a>
+
+                                </li>
+                         
+                    </ul> 
+            
+                        @if(User.Identity.IsAuthenticated)
+                        
+                        {
+
+            <ul class="navbar-nav flex-grow-1 nav-right">
+
+        <li class="nav-item">
+            <p>Welcome! @User.Identity.Name</p>
+        </li>
+
+
+                            </ul>
+                        }
+                        else
+                        {
+
+                            <ul class="navbar-nav flex-grow-1 nav-right">
+
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Login">Account</a>
+                                </li>
+
+
+                            </ul>
+                        }
+                    </div>
+
+                            </div>
+                        </div>
+
+                    </nav>
+
+                }
+             
+            </div>
+        </nav> *@
+        
+        @if (User.Identity.IsAuthenticated)
+        {
+            <nav class="navbar navbar-inverse">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#">TaxiApp</a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="myNavbar">
+                        <ul class="nav navbar-nav">
+                           
+                            @if (User.IsInRole("Admin"))
+                            {
+                                <li class="nav-item"><a class="nav-link" asp-controller="Bookings" asp-action="About"></a></li>
+                            }
+
+                            @if (User.IsInRole("AppUser"))
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Bookings" asp-action="BookingsIndex">Bookings</a>
+                                </li>
+                            }
+                            @if (User.IsInRole("AppUser"))
+                            {
+                                <li class="nav-item"><a class="nav-link" asp-controller="Bookings" asp-action="About">About</a></li>
+                            }
+                            @if (User.IsInRole("Admin"))
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Payments" asp-action="PaymentsIndex">Payments</a>
+
+                                </li>
+                            }
+
+                            @if (User.IsInRole("Admin"))
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Marshal" asp-action="Index">Marshal</a>
+                                </li>
+                            }
+
+
+
+                            @if (User.IsInRole("Admin"))
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Timeslot" asp-action="TimeslotIndex">TimeSlot</a>
+                                </li>
+                            }
+
+
+                            @if (User.IsInRole("Admin"))
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Province" asp-action="ProvinceIndex">Province</a>
+                                </li>
+                            }
+                            @if (User.IsInRole("Admin"))
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="City" asp-action="CityIndex">City</a>
+                                </li>
+                            }
+
+
+                            @if (User.IsInRole("Admin"))
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Driver" asp-action="DriverIndex">Driver</a>
+                                </li>
+                            }
+
+                            @if (User.IsInRole("Admin"))
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Taxi" asp-action="TaxiIndex">Taxi</a>
+                                </li>
+
+                            }
+                            @if (User.IsInRole("Admin"))
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="DriverDel" asp-action="DriverDelIndex">Deleted Drivers</a>
+                                </li>
+
+                            }
+                            @if (User.IsInRole("Admin"))
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Passenger" asp-action="PassengerIndex">Passenger</a>
+                                </li>
+                            }
+                      
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                         <li class="nav-item">
+            <p></p>
+        </li>
+                            <li><a><span class=""></span>Welcome! @User.Identity.Name</a></li>
+                            <li> <a asp-area="" asp-controller="Account" asp-action="ViewAccountView"><span class="glyphicon glyphicon-user">Account</a></li>
+                     
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        }
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+  @*   <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2024 - ClientTaxiApp - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer> *@
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

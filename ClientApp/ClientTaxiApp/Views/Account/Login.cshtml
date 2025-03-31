@@ -1,0 +1,85 @@
+﻿@model TaxiAppClient.Models.LoginModel
+@{
+    ViewData["Title"] = "Login";
+}
+@if (!User.Identity.IsAuthenticated)
+{
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <title>@ViewData["Title"]</title>
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/ClientTaxiApp.styles.css" asp-append-version="true" />
+        <script src="https://kit.fontawesome.com/824f59c8d7.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+
+        <style>
+            body {
+                background-image: url("/images/Simphiwe.jpg");
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+            }
+
+            /* Media query for tablets */
+            @@media only screen and (max-width: 1024px) {
+                body {
+                    background-position: top center;
+                }
+            }
+
+            /* Media query for mobile devices */
+            @@media only screen and (max-width: 768px) {
+                body {
+                    background-position: top center;
+                }
+            }
+
+            /* Media query for smaller mobile devices */
+            @@media only screen and (max-width: 480px) {
+                body {
+                    background-size: contain;
+                    background-position: top center;
+                }
+            }
+        </style>
+
+    </body>
+    </html>
+
+
+
+
+    <form asp-action="Login" asp-controller="Account" method="post" enctype="multipart/form-data">
+
+
+        <div class="d-flex justify-content-center">
+            <div style="min-width: 400px;" class="card shadow-lg p-5">
+                <h1 class="text-center display-6">Login to continue</h1>
+                <div class="text-center">
+                    <img style="width: 300px;" class="card-img-top"  src="~/images/Malebo.png" />
+                </div>
+                <br />
+                <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+                <div class="form-group">
+                    <input asp-for="Username" class="form-control" placeholder="Enter Username" autocomplete="off" />
+                </div>
+                <span class="text-danger mb-3" asp-validation-for="Username"></span>
+
+                <div class="form-group">
+                    <input asp-for="Password" class="form-control" placeholder="Enter password" autocomplete="off" />
+                </div>
+                <span class="text-danger mb-3" asp-validation-for="Password"></span>
+                <br />
+                <br />
+                <button class="btn btn-info" type="submit">Login</button>
+                <br />
+                <a class="btn btn-outline-danger" asp-action="Register">Go to Register page</a>
+            </div>
+        </div>
+    </form>
+}
+

@@ -1,0 +1,73 @@
+﻿@model ClientTaxiApp.Models.ViewModels.BookingViewModel
+
+@{
+    ViewData["Title"] = "Create Booking";
+}
+@if (User.Identity.IsAuthenticated)
+{
+    <h2>Create New Booking</h2>
+
+    <div class="new-booking">
+        <div class="col-4">
+            <form asp-action="Create" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <!-- Booking Date -->
+                <div class="form-group">
+                    <label asp-for="BookingDate" class="control-label">Booking Date:</label>
+                    <input asp-for="BookingDate" class="form-control" />
+                    <span asp-validation-for="BookingDate" class="text-danger"></span>
+                </div>
+
+                <!-- Passenger ID -->
+                <div class="form-group">
+                    <input type="hidden" asp-for="PassengerId" class="form-control" />
+                    @* <span asp-validation-for="PassengerId" class="text-danger"></span> *@
+                </div>
+
+                <!-- Origin Location -->
+                <div class="form-group">
+                    <label class="control-label">Origin Location</label>
+                    <input class="form-control" value="Johannesburg Wanderas Rank" />
+                </div>
+
+                <!-- City Selection -->
+                <div class="form-group">
+                    <label asp-for="CityId" class="control-label">Select Destination:</label>
+                    <select asp-items="ViewBag.CityId" asp-for="CityId" class="form-control">
+                        <option value="">-- Select Destination --</option>
+                    </select>
+                    <span asp-validation-for="CityId" class="text-danger"></span>
+                </div>
+
+                <!-- Timeslot Selection -->
+                <div class="form-group">
+                    <label asp-for="TimeslotId" class="control-label">Select Timeslot:</label>
+                    <select asp-items="ViewBag.TimeslotId" asp-for="TimeslotId" class="form-control">
+                        <option value="">-- Select Timeslot --</option>
+                    </select>
+                    <span asp-validation-for="TimeslotId" class="text-danger"></span>
+                </div>
+
+                <!-- Booking Fee -->
+                <div class="form-group">
+                    <label class="control-label">Booking Fee</label>
+                    <input class="form-control" value="R 25" />
+                </div>
+
+                <!-- Marshal ID -->
+                <div class="form-group">
+                    <input type="hidden" asp-for="MarshalId" class="form-control" />
+                    <span asp-validation-for="MarshalId" class="text-danger"></span>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary m-1" />
+                </div>
+
+            </form>
+        </div>
+        <a  asp-action="BookingsIndex" class="btn btn-success m-3">Back To List</a>
+    </div>
+}

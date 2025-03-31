@@ -1,0 +1,37 @@
+﻿@model IEnumerable<Timeslot>
+
+<h3>Time Slot List </h3>
+
+<a asp-action="Create" class="btn btn-primary">Create</a>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Slot</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @foreach (var timeslot in Model)
+        {
+            <tr>
+                <td>@timeslot.Slot </td>
+                 <td>
+                    <a asp-action="TimeslotDetails" asp-route-id="@timeslot.Id" class="btn btn-info">Details</a>
+                </td>
+                   <td>
+                       <span class="btn btn-danger">
+                    @Html.ActionLink("Delete", "TimeslotDelete", new { id = timeslot.Id }, new { onclick = " return confirm('Are you sure you wish to delete this Taxi?');" })
+                    </span>
+                </td>
+
+                <td>
+                    <a class="btn btn-primary" href="@Url.Action("TimeslotPut", "Timeslot", new { id = timeslot.Id })">Edit</a>
+                </td>
+
+            </tr>
+        }
+    </tbody>
+
+</table>

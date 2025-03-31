@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Taxi>
+
+<h3>Taxi List </h3>
+<a asp-action="Create" class="btn btn-primary">Create</a>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">BrandName</th>
+
+            <th scope="col">Model</th>
+
+            <th scope="col">License Plate</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @foreach (var taxi in Model)
+        {
+            <tr>
+
+                <td>@taxi.BrandName</td>
+                <td>@taxi.LicensePlate</td>
+                <td>@taxi.Type</td>
+                <td>@taxi.Seats</td>
+
+                 <td>
+                    <a asp-action="TaxiDetails" asp-route-id="@taxi.Id" class="btn btn-info">Details</a>
+                </td>
+
+                   <td>
+                       <span class="btn btn-danger">
+                    @Html.ActionLink("Delete", "TaxiDelete", new { id = taxi.Id }, new { onclick = " return confirm('Are you sure you wish to delete this Taxi?');" })
+                    </span>
+                </td>
+
+
+                <td>
+                    <a class="btn btn-primary" href="@Url.Action("TaxPut", "Taxi", new { id = taxi.Id })">Edit</a>
+                </td>
+
+            </tr>
+        }
+
+    </tbody>
+
+</table>

@@ -1,0 +1,63 @@
+﻿@{
+    ViewData["Title"] = "Bookings";
+}
+@model IEnumerable<Bookings>
+<h3>Booking List </h3>
+
+
+
+@if(User.Identity.IsAuthenticated){
+
+@* Create new booking button *@
+<div class="form-group">
+    <a asp-controller="Bookings" asp-action="Create" class="btn btn-primary"> Create Booking</a>
+</div>
+
+@* View existing bookings *@
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Booking Date</th>
+            <th scope="col">Passenger</th>
+            <th scope="col">City</th>
+            <th scope="col">Time Slot</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @if (Model.Count() == 0 ){
+            <tr> No bookings found!</tr>
+            }
+            else{
+                @foreach (var bookings in Model)
+                {            
+                         <tr>
+                            <td>@bookings.BookingDate</td>
+                            <td>@bookings.Passenger.PassengerName</td>
+                            <td>@bookings.City.Name</td>
+                            <td>@bookings.Timeslot.Slot</td>    
+
+                                <td>
+                                  <a asp-action="BookingDetails" asp-route-id="@bookings.Id" class="btn btn-info">Details</a>
+                                </td>
+                            
+                             <td>
+                                 <span class="btn btn-danger">
+                                   @Html.ActionLink("Delete", "BookingDelete", new { id = bookings.Id }, new { onclick = " return confirm('Are you sure you wish to delete this Booking?');" })
+                                 </span>
+                            </td>
+                            
+                             <td>
+                                 <a class="btn btn-primary" href="@Url.Action("BookingPut", "Bookings", new { id = bookings.Id })">Edit</a>
+                            </td>
+                        </tr>
+                    }
+                   }
+                   }
+
+    </tbody>
+
+</table>
+    <a class="btn btn-outline-primary" asp-controller="Bookings" asp-action="Homes">Home Page</a>
+
+}

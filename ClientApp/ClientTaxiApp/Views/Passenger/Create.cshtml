@@ -1,0 +1,53 @@
+﻿@model ClientTaxiApp.Models.ViewModels.PassengerViewModel
+
+@{
+    ViewData["Title"] = "Create New Passenger Profile";
+}
+
+<h2>Create New Profile</h2>
+
+<div class="new-passenger">
+    <div class="col-4">
+        <form asp-action="Create" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <!-- Passenger Name -->
+            <div class="form-group">
+                <label asp-for="Name" class="control-label">Name:</label>
+                </hr>
+                <input asp-for="Name" class="form-text" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+
+            <!-- Passenger Surname -->
+            <div class="form-group">
+                <label asp-for="Surname" class="control-label">Surname:</label>
+                </hr>
+                <input asp-for="Surname" class="form-text" />
+                <span asp-validation-for="Surname" class="text-danger"></span>
+            </div>
+
+            <!-- Passenger Numbers -->
+            <div class="form-group">
+                <label asp-for="Numbers" class="control-label">Cellphone Numbers:</label>
+                </hr>
+                <input asp-for="Numbers" class="form-text" />
+                <span asp-validation-for="Numbers" class="text-"></span>
+            </div>
+
+
+            <!--App User Id-->
+            <div class="form-group">
+                <input type="hidden" asp-for="AppUserId" class="form-control" />
+                @* <span asp-validation-for="PassengerId" class="text-danger"></span> *@
+            </div>
+
+           
+            <!-- Submit Button -->
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+    <a asp-action="PassengerIndex" class="btn btn-success"> Back To List</a>
+</div>

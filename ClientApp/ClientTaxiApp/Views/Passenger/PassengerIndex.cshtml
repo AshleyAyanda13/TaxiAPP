@@ -1,0 +1,71 @@
+﻿@model Passenger
+
+<h3>My Account Details </h3>
+
+
+@* Create new passenger button *@
+
+
+@if(Model==null)
+{
+    <a asp-action="Create" class="btn btn-primary">Create</a>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+
+                <th scope="col">Surname</th>
+
+                <th scope="col">CelNumber</th>
+            </tr>
+            <a class="btn btn-outline-primary" asp-controller="Bookings" asp-action="Homes">Home</a>
+        </thead>
+
+       
+
+    </table>
+        
+
+}
+else{
+ 
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+
+            <th scope="col">Surname</th>
+
+            <th scope="col">CelNumber</th>
+        </tr>
+            <a class="btn btn-outline-primary" asp-controller="Bookings" asp-action="Homes">Home</a>
+    </thead>
+        
+    <tbody>
+
+            <tr>
+                <td>@Model.PassengerName</td>
+                <td>@Model.Surname</td>
+                <td>@Model.CellphoneNr</td>
+             
+                <td>
+                    <a asp-action="PassengerDetails" asp-route-id="Model.Id" class="btn btn-info">Details</a>
+                </td>
+
+
+                <td>
+                    <span class="btn btn-danger">
+                    @Html.ActionLink("Delete", "PassengerDelete", new { id = Model.Id }, new { onclick = " return confirm('Are you sure you wish to delete your details?');" })
+                    </span>
+                </td>
+
+                <td>
+                    <a class="btn btn-primary" href="@Url.Action("PassengerPut", "Passenger", new { id = Model.Id })">Edit</a>
+                </td>
+            </tr>
+        
+
+    </tbody>
+
+</table>
+}

@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Payments>
+
+<h3>Payment List </h3>
+<a asp-action="Create" class="btn btn-primary">Create</a>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Amount</th>
+
+            <th scope="col">Payment Status</th>
+
+         @*  <th scope="col">StripePaymentID</th>*@
+
+            <th scope="col">booking</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @foreach (var payments in Model)
+        {
+            <tr>
+
+                <td>@payments.PaymentStatus</td>
+                <td>@payments.Amount</td>
+
+
+                  <td>
+                    <a asp-action="PaymentDetails" asp-route-id="@payments.Id" class="btn btn-info">Details</a>
+                </td>
+
+                <td>
+                    <span class="btn btn-danger">
+                    @Html.ActionLink("Delete", "PaymentsDelete", new { id = payments.Id }, new { onclick = " return confirm('Are you sure you wish to delete this Province?');" })\
+                    </span>
+                </td>
+
+                <td>
+                    <a class="btn btn-primary" href="@Url.Action("PaymentPut", "Payments", new { id = payments.Id })">Edit</a>
+                </td>
+            </tr>
+        }
+
+    </tbody>
+
+</table>

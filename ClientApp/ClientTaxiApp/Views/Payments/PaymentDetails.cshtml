@@ -1,0 +1,29 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Tittle"] = "PaymentDetailes";
+}
+@model Payments
+<h4>Passenger Details</h4>
+<div class="accordion accordion-flush" id="accordionFlushExample">
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-headingOne">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                Payment Details
+            </button>
+        </h2>
+        <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+            <div class="accordion-body">
+                <!--Payments Details-->
+                <dl class="row">
+                    <dt class=" col-4">Payment Status</dt>
+                    <dd class="col-6">@Model.PaymentStatus</dd>
+                </dl>
+                <dl class="row">
+                    <dt class=" col-4">Amount</dt>
+                    <dd class="col-6">@Model.Amount</dd>
+                </dl>
+            </div>
+        </div>
+        <a asp-action="PaymentsIndex" class="btn btn-success">Back To List</a>

@@ -1,0 +1,40 @@
+﻿@model ClientTaxiApp.Models.ViewModels.PaymentsViewModel
+
+@{
+    ViewData["Title"] = "PaymentPut";
+}
+
+<h1>PaymentPut</h1>
+
+<h4>PaymentsViewModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="PaymentPut">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Amount" class="control-label"></label>
+                <input asp-for="Amount" class="form-control" />
+                <span asp-validation-for="Amount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PaymentStatus" class="control-label"></label>
+                <input asp-for="PaymentStatus" class="form-control" />
+                <span asp-validation-for="PaymentStatus" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PaymentDate" class="control-label"></label>
+                <input asp-for="PaymentDate" class="form-control" />
+                <span asp-validation-for="PaymentDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary m-1" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="PaymentsIndex" class="btn btn-success m-3">Back to List</a>
+</div>
+

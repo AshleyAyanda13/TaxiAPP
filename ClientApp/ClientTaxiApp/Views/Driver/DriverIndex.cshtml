@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Driver>
+
+<h3>Driver List </h3>
+
+
+<a asp-action="Create" class="btn btn-primary">Create</a>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+
+            <th scope="col">Surname</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @foreach (var driver in Model)
+        {
+            <tr>
+
+                <td>@driver.DriverName</td>
+                <td>@driver.DriverSurname</td>
+                <td>
+                    <a asp-action="DriverDetails" asp-route-id="@driver.Id" class="btn btn-info">Details</a>
+                </td>
+                <td> 
+                    <span class= "btn btn-danger">
+                    @Html.ActionLink("Delete", "DriverDelete", new { id = driver.Id }, new { onclick = " return confirm('Are you sure you wish to delete this Driver?');" })
+                </span>
+
+                </td>
+
+                <td>
+                    <a class="btn btn-primary" href="@Url.Action("DriverPut", "Driver", new { id = driver.Id })">Edit</a>
+                </td>
+            </tr>
+        }
+
+    </tbody>
+
+</table>

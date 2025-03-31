@@ -1,0 +1,32 @@
+﻿@model ClientTaxiApp.Models.ViewModels.PaymentsViewModel
+
+@{
+    ViewData["Title"] = "Create New Payments";
+}
+
+<div class="new-payment">
+    <div class="col-4">
+           <h1>Pay Now Below</h1>
+
+                               <form action="https://sandbox.payfast.co.za/eng/process" method="post">
+   <input type="hidden" name="merchant_id" value="10034444">
+   <input type="hidden" name="merchant_key" value="mel9qg3aicir2">
+   <input type="hidden" name="amount" value="25.00">
+   <input type="hidden" name="item_name" value="Taxi Booking">
+
+
+   <input type="hidden" name="merchant_id" value="10000100">
+<input type="hidden" name="merchant_key" value="46f0cd694581a">
+<input type="hidden" name="return_url" value="https://localhost:7087/Bookings/BookingsIndex">
+<input type="hidden" name="cancel_url" value="https://localhost:7087/Bookings/Homes">
+
+
+
+      <input type="submit">
+        </form>
+
+
+
+        <a asp-action="BookingsIndex" class="btn btn-success">Back To Booking</a>
+    </div>
+</div>
