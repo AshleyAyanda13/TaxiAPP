@@ -1,0 +1,6 @@
+@TaxiAppApi_HostAddress = http://localhost:5029
+
+GET {{TaxiAppApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
