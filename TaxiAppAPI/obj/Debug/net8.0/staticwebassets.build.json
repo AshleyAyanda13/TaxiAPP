@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "8S8htwB1Cf7RmJVrdFXzDY5A7WT1ODNoXcADwXxYo1o=",
+  "Source": "TaxiAppApi",
+  "BasePath": "_content/TaxiAppApi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
