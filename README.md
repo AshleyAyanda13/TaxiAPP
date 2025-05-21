@@ -1,2 +1,2 @@
-# TaxiAPP
-Taxi App that I worked on together with 2 other Intern Developers
+# Taxi booking web application
+ASP .NET CORE Plus Razor Views Project
